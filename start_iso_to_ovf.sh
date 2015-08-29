@@ -8,7 +8,7 @@ set -e
 # Configuration
 
 # Precise
-ubuntu_version_full="14.04.2"
+ubuntu_version_full="14.04.3"
 ubuntu_version_short="14.04"
 ubuntu_version_codename="trusty"
 # Trusty
@@ -89,6 +89,9 @@ perl -pi -e "s|ISO_URL|${ubuntu_cd_mirror}${ubuntu_version_short}/${ubuntu_iso_f
 sha1sums_filename="cdimages_SHA1SUMS"
 wget -q -O "${sha1sums_filename}" "http://releases.ubuntu.com/${ubuntu_version_short}/SHA1SUMS"
 iso_checksum_value=$(grep "${ubuntu_iso_filename}" "${sha1sums_filename}" | cut -d" " -f1)
+echo ubuntu_iso_filename: $ubuntu_iso_filename
+echo sha1sums_filename: $sha1sums_filename
+echo iso_checksum_value: $iso_checksum_value
 perl -pi -e "s|ISO_CHECKSUM|${iso_checksum_value}|g" ubuntu_iso_to_ovf.json
 
 # Delete existing packer output directory, otherwise packer fails.

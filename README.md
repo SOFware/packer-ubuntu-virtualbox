@@ -37,6 +37,10 @@ Then, run the below, which will pick the first mirror from mirrors.ubuntu.com/mi
 ```bash
 ./start_iso_to_ovf.sh
 ```
+### Checksum errors
+*If you get an error referring to a checksum being necessary, it may be that you
+need to update `ubuntu_version_full` in `start_iso_to_ovf.sh`. The site where
+checksums are accessed only shows the SHA1 values for the latest point release.*
 
 The result of the above will be a directory called output-virtualbox-iso/ containing a .ovf and .vmdk file.
 

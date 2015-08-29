@@ -5,7 +5,7 @@ set -x
 
 # Install wget to get public key from upstream.
 # May already be installed, but we make sure.
-sudo apt-get install -y --force-yes wget
+sudo apt-get update && install -y --force-yes wget
 
 # Installing vagrant keys
 mkdir ~/.ssh
@@ -22,3 +22,4 @@ echo "this is a test file" > ~/test_file
 
 # NOTE - Add any extra provisioner tasks you like here.
 # Alternatively you can define extra provisioners in the Packer JSON file.
+
